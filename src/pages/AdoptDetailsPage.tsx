@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Pin from "../assets/location.svg?react";
-import MainHeader from "../components/MainHeader";
 import { fetchAnimalById } from '../apis/api';
+import SecondaryHeader from '../components/SecondaryHeader';
 
 interface Animal {
   id: number;
@@ -42,7 +42,7 @@ const AdoptDetailsPage = () => {
 
   return (
     <>
-      <MainHeader />
+      <SecondaryHeader title="Adoption Details"/>
       <section className="p-6 pb-20"> 
         {/* Image */}
         <div className="w-85 h-85 overflow-hidden rounded-lg">
