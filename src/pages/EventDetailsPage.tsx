@@ -12,8 +12,8 @@ import checkmarkIcon from "../assets/checkmark.svg";
 const EventDetailsPage = () => {
   return (
     <>
-      <div className="subpage-nav">
-        <div className="flex items-center py-8 px-6 border-b">
+      <div className="subpage-nav mb-18">
+        <div className="flex items-center py-8 px-6  ">
           <Link to="/community">
             <img
               src={arrowLeft}
@@ -35,18 +35,18 @@ const EventDetailsPage = () => {
         </article>
 
         <section className="event-logistics">
-          <h1 className="pb-4 pt-1.5 px-6 font-bold">
+          <h1 className="pb-4 pt-1.5 px-6 font-bold text-primary">
             Animal Shelter Clean-up Day
           </h1>
 
-          <div className="flex items-center py-1.5 px-6">
+          <div className="flex items-center py-1.5 px-6 text-secondary-">
             <img
               src={calendarIcon}
               alt="calendar icon"
-              className="w-5 h-5 cursor-pointer mr-3"
+              className="w-5 h-5 cursor-pointer mr-3 "
             />
             <div>
-              <h2>Saturday, March 15, 2025 • 9:00 AM - 2:00 PM</h2>
+              <h2 className="text-secondary-text">Saturday, March 15, 2025 • 9:00 AM - 2:00 PM</h2>
             </div>
           </div>
 
@@ -57,7 +57,7 @@ const EventDetailsPage = () => {
               className="w-5 h-5 cursor-pointer mr-3"
             />
             <div>
-              <h2>123 Shelter Street, Pet City</h2>
+              <h2 className="text-secondary-text">123 Shelter Street, Pet City</h2>
             </div>
           </div>
 
@@ -68,14 +68,14 @@ const EventDetailsPage = () => {
               className="w-5 h-5 cursor-pointer mr-3"
             />
             <div>
-              <h2>12 spots remaining</h2>
+              <h2 className="text-secondary-text">12 spots remaining</h2>
             </div>
           </div>
         </section>
 
         <section className="about-this-event">
-          <h2 className="pb-3 pt-7 px-6 font-bold">About This Event</h2>
-          <h2 className="px-6">
+          <h2 className="pb-3 pt-7 px-6 font-bold text-primary">About This Event</h2>
+          <h2 className="px-6 text-secondary-text">
             Join us for our monthly shelter clean-up day! We'll be cleaning
             kennels, organizing supplies, and spending time with our furry
             friends. No experience necessary, all cleaning supplies provided.
@@ -85,14 +85,14 @@ const EventDetailsPage = () => {
         <section className="requirements">
           <h2 className="pb-1.5 pt-7 px-6 font-bold">Requirements</h2>
 
-          <div className="flex items-center py-1.5 px-6">
+          <div className="flex items-center py-1.5 px-6 text-secondary-text">
             <img
               src={checkmarkIcon}
               alt="yellow checkmark icon"
               className="w-5 h-5 cursor-pointer mr-3"
             />
             <div>
-              <h2>Must be 18 or older</h2>
+              <h2 className="text-secondary-text">Must be 18 or older</h2>
             </div>
           </div>
 
@@ -103,7 +103,7 @@ const EventDetailsPage = () => {
               className="w-5 h-5 cursor-pointer mr-3"
             />
             <div>
-              <h2>Closed-toe shoes required</h2>
+              <h2 className="text-secondary-text">Closed-toe shoes required</h2>
             </div>
           </div>
 
@@ -114,7 +114,7 @@ const EventDetailsPage = () => {
               className="w-5 h-5 cursor-pointer mr-3"
             />
             <div>
-              <h2>Sign waiver form</h2>
+              <h2 className="text-secondary-text">Sign waiver form</h2>
             </div>
           </div>
         </section>

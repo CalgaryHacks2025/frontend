@@ -48,7 +48,7 @@ const CommunityPage = () => {
           </section>
         </section>
 
-        <section>
+        <section className="mb-22">
           <article className="flex justify-center mt-6">
             <img
               src={petAdoptionDay}

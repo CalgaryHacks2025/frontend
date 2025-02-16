@@ -8,7 +8,7 @@ const EventConfirmedPage = () => {
   return (
     <>
       <div>
-        <div className="flex items-center py-8 px-6 border-b">
+        <div className="flex items-center py-8 px-6">
           <Link to="/event-details">
             <img
               src={arrowLeft}
@@ -17,7 +17,7 @@ const EventConfirmedPage = () => {
             />
           </Link>
           <div className="flex-grow text-center">
-            <h1 className="font-bold">Event Confirmed</h1>
+            <h1 className="font-bold text-primary">Event Confirmed</h1>
           </div>
         </div>
 
@@ -31,11 +31,11 @@ const EventConfirmedPage = () => {
 
         <div className="w-9.5/10 mx-6">
           <section className="bg-white rounded-md py-6">
-            <h1 className="font-bold px-6 py-2">Animal Shelter Clean-up Day</h1>
-            <p className="px-6 py-1">
+            <h1 className="font-bold px-6 py-2 text-primary">Animal Shelter Clean-up Day</h1>
+            <p className="px-6 py-1 text-secondary-text">
               Saturday, March 15, 2025 • 9:00 AM - 2:00 PM
             </p>
-            <p className="px-6 py-1">123 Shelter Street, Pet City</p>
+            <p className="px-6 py-1 text-secondary-text">123 Shelter Street, Pet City</p>
           </section>
 
           <div className="py-7.5">
