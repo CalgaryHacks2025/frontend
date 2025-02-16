@@ -16,7 +16,7 @@ const AssessPage = () => {
         </article>
         <article className="rounded-lg bg-background-card p-6 my-6">
           <PhotoIcon className="place-self-center mx-auto"/>
-          <button className="bg-primary text-white rounded-lg w-full py-3 my-4">Take Photo</button>
+          <button className="bg-background text-primary rounded-lg w-full py-3 my-4 border-1 border-primary">Upload Photo</button>
           <p className="text-secondary-text text-center text-sm">Choose from your gallery</p>
         </article>
         <div className="">
