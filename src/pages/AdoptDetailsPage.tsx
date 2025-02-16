@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Pin from "../assets/location.svg?react";
-import { fetchAnimalById } from '../apis/api';
+import { fetchAnimalById, adoptAnimal } from '../apis/api';
 import SecondaryHeader from '../components/SecondaryHeader';
+
 
 interface Animal {
   id: number;
@@ -35,6 +36,19 @@ const AdoptDetailsPage = () => {
 
     getAnimalDetails();
   }, [id]);
+
+
+  const navigate = useNavigate();
+
+  const adopt = async() => {
+    try {
+        await adoptAnimal(`${1}`, `${animal.id}`);
+        navigate('/adopt');
+
+    } catch (error) {
+        console.log('unable to update')
+    }
+  }
 
   if (loading) return <div className="text-center p-6">Loading animal details...</div>;
 
@@ -88,7 +102,7 @@ const AdoptDetailsPage = () => {
 
       {/* Sponsor Button */}
       <div className="fixed bottom-0 left-0 p-6 w-full bg-background shadow-lg">
-        <button className="bg-primary rounded-lg text-white font-semibold py-4 w-full hover:bg-primary-dark transition">
+        <button onClick={adopt} className="bg-primary rounded-lg text-white font-semibold py-4 w-full hover:bg-primary-dark transition">
           Sponsor {animal.name}
         </button>
       </div>
