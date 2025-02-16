@@ -6,6 +6,8 @@ import CommunityPage from "./pages/CommunityPage";
 import ProfilePage from "./pages/ProfilePage";
 import HomePage from "./pages/HomePage";
 import UpdatesPage from "./pages/UpdatesPage";
+import EventDetailsPage from "./pages/EventDetailsPage";
+import EventConfirmedPage from "./pages/EventConfirmedPage";
 import AdoptDetailsPage from "./pages/AdoptDetailsPage";
 import AnalysisPage from "./pages/AnalysisPage";
 
@@ -22,7 +24,12 @@ function App() {
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/updates" element={<UpdatesPage />} />
+<<<<<<< HEAD
           <Route path="/analysis" element={<AnalysisPage />} />
+=======
+          <Route path="/event-details" element={<EventDetailsPage />} />
+          <Route path="/event-confirmed" element={<EventConfirmedPage />} />
+>>>>>>> develop
         </Routes>
       </BrowserRouter>
     </>
