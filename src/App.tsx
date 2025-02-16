@@ -4,6 +4,7 @@ import AssessPage from "./pages/AssessPage"
 import AdoptPage from "./pages/AdoptPage"
 import CommunityPage from "./pages/CommunityPage"
 import ProfilePage from "./pages/ProfilePage"
+import HomePage from "./pages/HomePage";
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AssessPage />} />
+      <Route path="/" element={<HomePage />} />
+        <Route path="/assess" element={<AssessPage />} />
         <Route path="/adopt" element={<AdoptPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/profile/:id" element={<ProfilePage />} />
