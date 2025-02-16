@@ -3,7 +3,7 @@ import Nav from "../components/Nav"
 const AdoptPage = () => {
   return (
     <>
-        <div>AdoptPage</div>
+        <div className="font-inter">AdoptPage</div>
         <Nav/>
     </>
 
