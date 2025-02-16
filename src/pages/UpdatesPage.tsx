@@ -71,7 +71,7 @@ const UpdatesPage = () => {
 
   return (
     <div className="font-inter bg-background min-h-screen pb-20">
-      <SecondaryHeader title="Updates" />
+      <SecondaryHeader />
       <div className="p-6">
         <div className="container mx-auto">
           <div className="bg-background p-0 rounded-lg">

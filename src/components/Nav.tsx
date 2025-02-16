@@ -8,7 +8,7 @@ import Assess from '../../src/assets/assess.svg?react'
 
 const Nav = () => {
   const location = useLocation();
-  // console.log(location);
+  console.log(location);
 
 
   return (
