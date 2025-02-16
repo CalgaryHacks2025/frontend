@@ -12,7 +12,7 @@ const Nav = () => {
 
 
   return (
-    <div className="bg-background fixed bottom-0 p-4 grid grid-cols-4 text-center gap-10 text-xs h-16">
+    <div className="bg-background fixed bottom-0 px-4 py-5 grid grid-cols-4 text-center gap-10 text-xs border-t-1 border-[#E5E7EB] ">
         <Link to={'/'} className={location.pathname === '/'? 'text-nav fill-nav': 'text-secondary-text'}>
           <Home className='place-self-center' />
           <p>Home</p>
