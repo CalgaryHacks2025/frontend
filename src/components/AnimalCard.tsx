@@ -27,7 +27,7 @@ const AnimalCard = () => {
                 <p className="text-secondary-text px-1 text-sm font-light">India</p>
             </div>
             <Link to={'/'}>
-            <button className="bg-secondary text-primary rounded-lg w-full py-2 hover:bg-ligh">Adopt</button>
+            <button className="bg-secondary text-primary rounded-lg w-full py-2">Adopt</button>
             </Link>
         </div>
 
