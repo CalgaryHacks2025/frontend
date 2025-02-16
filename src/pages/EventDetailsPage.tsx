@@ -21,7 +21,7 @@ const EventDetailsPage = () => {
             />
           </Link>
           <div className="flex-grow text-center">
-            <h1>Event Details</h1>
+            <h1 className="font-bold">Event Details</h1>
           </div>
         </div>
 
@@ -29,12 +29,14 @@ const EventDetailsPage = () => {
           <img
             src={animalShelterCleanupDay}
             alt="nurse holding sick dog"
-            className="w-95vw rounded-md object-cover"
+            className="w-9/10 rounded-md object-cover"
           />
         </article>
 
         <section className="event-logistics">
-          <h1 className="pb-4 pt-1.5 px-6">Animal Shelter Clean-up Day</h1>
+          <h1 className="pb-4 pt-1.5 px-6 font-bold">
+            Animal Shelter Clean-up Day
+          </h1>
 
           <div className="flex items-center py-1.5 px-6">
             <img
@@ -71,7 +73,7 @@ const EventDetailsPage = () => {
         </section>
 
         <section className="about-this-event">
-          <h2 className="pb-3 pt-7 px-6">About This Event</h2>
+          <h2 className="pb-3 pt-7 px-6 font-bold">About This Event</h2>
           <h2 className="px-6">
             Join us for our monthly shelter clean-up day! We'll be cleaning
             kennels, organizing supplies, and spending time with our furry
@@ -80,7 +82,7 @@ const EventDetailsPage = () => {
         </section>
 
         <section className="requirements">
-          <h2 className="pb-3 pt-7 px-6">Requirements</h2>
+          <h2 className="pb-1.5 pt-7 px-6 font-bold">Requirements</h2>
 
           <div className="flex items-center py-1.5 px-6">
             <img
@@ -116,9 +118,11 @@ const EventDetailsPage = () => {
           </div>
         </section>
 
-        <button>
-          <Link to="/event-confirmed">Register for Event</Link>
-        </button>
+        <div className="px-6 py-6">
+          <button className="bg-[#23453A] text-white rounded-md mr-3 w-full w-9/10 h-15 flex items-center justify-center font-bold">
+            <Link to="/event-confirmed">Register for Event</Link>
+          </button>
+        </div>
       </div>
       <Nav />
     </>
