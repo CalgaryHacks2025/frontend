@@ -42,7 +42,9 @@ const AdoptDetailsPage = () => {
 
   const adopt = async() => {
     try {
-        await adoptAnimal(`${1}`, `${animal.id}`);
+        if (animal) {
+          await adoptAnimal(`${1}`, `${animal.id}`);
+        }
         navigate('/adopt');
 
     } catch (error) {

@@ -27,7 +27,7 @@ const AnimalCard = ({ animal, isAdopted }: { animal: Animal; isAdopted: boolean 
             </>
           ) : (
             <>
-              <Alert className="mr-1 text-blue-500" />
+              <Alert className="mr-1 fill-primary" />
               <p className="text-buttons">Fundraising</p>
             </>
           )}
@@ -45,7 +45,7 @@ const AnimalCard = ({ animal, isAdopted }: { animal: Animal; isAdopted: boolean 
           <Pin height={12} />
           <p className="text-secondary-text px-2 text-sm font-light">{country[1]}</p>
         </div>
-        <Link to={isAdopted ? `/update/${animal.id}` : `/adopt/${animal.id}`}>
+        <Link to={isAdopted ? `/updates/${animal.id}` : `/adopt/${animal.id}`}>
           <button
             className={`rounded-lg w-full py-2 transition ${
               isAdopted
