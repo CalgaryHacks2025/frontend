@@ -47,7 +47,7 @@ const AssessPage = () => {
   return (
     <>
       <MainHeader />
-      <section className="px-6">
+      <section className="px-6 pb-20"> {/* 🆕 Added padding-bottom */}
         <p className="text-secondary-text text-center my-6">
           Take a photo or upload an existing one to <br /> assess the animal's condition
         </p>
