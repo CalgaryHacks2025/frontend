@@ -1,4 +1,4 @@
-import { Location, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 const MainHeader = () => {
   const location = useLocation();
