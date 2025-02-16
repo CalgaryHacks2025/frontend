@@ -16,14 +16,14 @@ const AnimalCard = () => {
         <div className="bg-background-card p-3">
             <div className="flex justify-between">
                 <h2 className="text-primary font-semibold">Max</h2>
-                <p className="text-secondary-text">2 years</p>
+                <p className="text-secondary-text text-sm font-light">2 years</p>
             </div>
-            <div className="flex items-center">
-                <Pin/>
-                <p className="text-secondary-text px-1">India</p>
+            <div className="flex items-center py-1 mb-1">
+                <Pin height={12}/>
+                <p className="text-secondary-text px-1 text-sm font-light">India</p>
             </div>
             <Link to={'/'}>
-            <button className="bg-secondary">Adopt</button>
+            <button className="bg-secondary text-primary rounded-lg w-full py-2">Adopt</button>
             </Link>
         </div>
 
