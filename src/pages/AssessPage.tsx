@@ -73,7 +73,7 @@ const AssessPage = () => {
             className="my-2 w-full"
           />
           <button
-            className="bg-primary text-white rounded-lg w-full py-3 my-4"
+            className="bg-background text-primary rounded-lg w-full py-3 my-4 border-1 border-primary"
             onClick={handleUpload}
             disabled={loading}
           >
