@@ -8,7 +8,7 @@ const CommunityPage = () => {
         <div>Community</div>
         <Nav/>
     </>
-  )
-}
+  );
+};
 
-export default CommunityPage
+export default CommunityPage;
