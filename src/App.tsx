@@ -12,21 +12,19 @@ import EventConfirmedPage from "./pages/EventConfirmedPage";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/assess" element={<AssessPage />} />
-          <Route path="/adopt" element={<AdoptPage />} />
-          <Route path="/adopt/:id" element={<AdoptDetailsPage />} />
-          <Route path="/community" element={<CommunityPage />} />
-          <Route path="/profile/:id" element={<ProfilePage />} />
-          <Route path="/updates" element={<UpdatesPage />} />
-          <Route path="/event-details" element={<EventDetailsPage />} />
-          <Route path="/event-confirmed" element={<EventConfirmedPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/assess" element={<AssessPage />} />
+        <Route path="/adopt" element={<AdoptPage />} />
+        <Route path="/adopt/:id" element={<AdoptDetailsPage />} />
+        <Route path="/community" element={<CommunityPage />} />
+        <Route path="/profile/:id" element={<ProfilePage />} />
+        <Route path="/updates/:id" element={<UpdatesPage />} /> 
+        <Route path="/event-details" element={<EventDetailsPage />} />
+        <Route path="/event-confirmed" element={<EventConfirmedPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
