@@ -6,6 +6,8 @@ import CommunityPage from "./pages/CommunityPage";
 import ProfilePage from "./pages/ProfilePage";
 import HomePage from "./pages/HomePage";
 import UpdatesPage from "./pages/UpdatesPage";
+import EventDetailsPage from "./pages/EventDetailsPage";
+import EventConfirmedPage from "./pages/EventConfirmedPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/updates" element={<UpdatesPage />} />
+          <Route path="/event-details" element={<EventDetailsPage />} />
+          <Route path="/event-confirmed" element={<EventConfirmedPage />} />
         </Routes>
       </BrowserRouter>
     </>

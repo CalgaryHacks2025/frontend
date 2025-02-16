@@ -1,12 +1,15 @@
-import Nav from "../components/Nav"
-import MainHeader from "../components/MainHeader"
+import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
+import MainHeader from "../components/MainHeader";
 
 const CommunityPage = () => {
   return (
     <>
-        <MainHeader/>
-        <div>Community</div>
-        <Nav/>
+      <MainHeader />
+      <button>
+        <Link to="/event-details">Join Event</Link>
+      </button>
+      <Nav />
     </>
   );
 };
