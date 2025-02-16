@@ -34,3 +34,17 @@
             throw error;
         }
     };
+
+    export const fetchAdoptionsByUserId = async (userId = 1) => {
+        try {
+            const response = await axios.get(`${API_URL}/api/animals/adopt/${userId}`);
+            return response.data;
+        } catch (error: any) {
+            if (error.response && error.response.status === 404) {
+                console.warn(`No adoptions found for user ID ${userId}`);
+                return []; 
+            }
+            console.error(`Error fetching adoptions for user ID ${userId}:`, error);
+            throw error;
+        }
+    };
