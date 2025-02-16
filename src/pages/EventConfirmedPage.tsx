@@ -6,12 +6,12 @@ const EventConfirmedPage = () => {
   return (
     <>
       <div>
-        <div className="flex items-center py-8 px-6 border-b--color-divider">
+        <div className="flex items-center py-8 px-6 border-b">
           <Link to="/event-details">
             <img
               src={arrowLeft}
+              alt="back button"
               className="w-5 h-5 cursor-pointer"
-              alt="left-arrow"
             />
           </Link>
           <div className="flex-grow text-center">
