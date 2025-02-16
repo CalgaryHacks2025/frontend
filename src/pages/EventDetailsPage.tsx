@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "../App.css";
 import Nav from "../components/Nav";
+import Button from "../components/Button";
 import arrowLeft from "../assets/arrow-left.svg";
 import animalShelterCleanupDay from "../assets/animal-shelter-clean-up-day.png";
 import calendarIcon from "../assets/calendar.svg";
@@ -119,9 +120,7 @@ const EventDetailsPage = () => {
         </section>
 
         <div className="px-6 py-6">
-          <button className="bg-[#23453A] text-white rounded-md mr-3 w-full w-9/10 h-15 flex items-center justify-center font-bold">
-            <Link to="/event-confirmed">Register for Event</Link>
-          </button>
+          <Button to="/event-confirmed">Register for Event</Button>
         </div>
       </div>
       <Nav />
