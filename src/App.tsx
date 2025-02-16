@@ -9,11 +9,7 @@ import HomePage from "./pages/HomePage";
 import UpdatesPage from "./pages/UpdatesPage";
 import EventDetailsPage from "./pages/EventDetailsPage";
 import EventConfirmedPage from "./pages/EventConfirmedPage";
-<<<<<<< HEAD
-import AdoptDetailsPage from "./pages/AdoptDetailsPage";
 import AnalysisPage from "./pages/AnalysisPage";
-=======
->>>>>>> develop
 
 function App() {
   return (
