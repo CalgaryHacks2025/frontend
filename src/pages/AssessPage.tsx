@@ -1,8 +1,11 @@
-
+import Nav from "../components/Nav"
 
 const AssessPage = () => {
   return (
-    <div>AssessPage</div>
+    <>
+        <div>AssessPage</div>
+        <Nav/>
+    </>
   )
 }
 
