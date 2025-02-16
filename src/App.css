@@ -29,4 +29,8 @@
     font-size: var(--text-h2);
   }
 
+  body {
+    background: var(--color-background);
+  }
+
 }
