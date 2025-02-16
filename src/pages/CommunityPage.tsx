@@ -21,7 +21,7 @@ const CommunityPage = () => {
           />
         </article>
 
-        <section className="bg-[#F1F0EA] px-6 py-5 rounded-bl-md rounded-br-md rounded-tl-none rounded-tr-none">
+        <section className="bg-[#F1F0EA] px-5 py-4 rounded-bl-md rounded-br-md rounded-tl-none rounded-tr-none">
           <h2 className="font-bold pb-3 pt-1">Animal Shelter Clean-up Day</h2>
 
           <div>
