@@ -10,20 +10,17 @@ import AdoptDetailsPage from "./pages/AdoptDetailsPage";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/assess" element={<AssessPage />} />
-          <Route path="/adopt" element={<AdoptPage />} />
-          <Route path="/adopt/:id" element={<AdoptDetailsPage />} />
-
-          <Route path="/community" element={<CommunityPage />} />
-          <Route path="/profile/:id" element={<ProfilePage />} />
-          <Route path="/updates" element={<UpdatesPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/assess" element={<AssessPage />} />
+        <Route path="/adopt" element={<AdoptPage />} />
+        <Route path="/adopt/:id" element={<AdoptDetailsPage />} />
+        <Route path="/community" element={<CommunityPage />} />
+        <Route path="/profile/:id" element={<ProfilePage />} />
+        <Route path="/updates/:id" element={<UpdatesPage />} /> 
+      </Routes>
+    </BrowserRouter>
   );
 }
 

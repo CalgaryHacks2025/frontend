@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import SecondaryHeader from "../components/SecondaryHeader";
 import HeartIcon from "../assets/heart-yellow.svg";
@@ -16,6 +17,7 @@ interface PhotoData {
 }
 
 const UpdatesPage = () => {
+  const { id } = useParams<{ id: string }>(); 
   const [userData, setUserData] = useState<UserData | null>(null);
   const [photoData, setPhotoData] = useState<PhotoData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -23,9 +25,15 @@ const UpdatesPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!id) {
+        setError("No ID provided");
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users/1"
+          `https://jsonplaceholder.typicode.com/users/${id}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -34,7 +42,7 @@ const UpdatesPage = () => {
         setUserData(data);
 
         const photoResponse = await fetch(
-          "https://jsonplaceholder.typicode.com/photos/1"
+          `https://jsonplaceholder.typicode.com/photos/${id}`
         );
         if (!photoResponse.ok) {
           throw new Error("Failed to fetch photo data");
@@ -42,14 +50,18 @@ const UpdatesPage = () => {
         const photoData: PhotoData = await photoResponse.json();
         setPhotoData(photoData);
       } catch (error) {
-        setError(error.message);
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError("An unknown error occurred");
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const getCurrentDate = () => {
     const today = new Date();
@@ -62,16 +74,16 @@ const UpdatesPage = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="p-6 text-center">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="p-6 text-center text-red-500">Error: {error}</div>;
   }
 
   return (
     <div className="font-inter bg-background min-h-screen pb-20">
-      <SecondaryHeader title="Updates" />
+      <SecondaryHeader title={`Updates for ID: ${id}`} />
       <div className="p-6">
         <div className="container mx-auto">
           <div className="bg-background p-0 rounded-lg">
