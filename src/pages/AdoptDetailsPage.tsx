@@ -9,10 +9,12 @@ interface Animal {
   name: string;
   species: string;
   location: string;
+  gender: string;
   age: number;
   description: string;
-  imageUrl: string;
+  image: string;
 }
+const baseURL = import.meta.env.VITE_API_URL;
 
 const AdoptDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -45,7 +47,7 @@ const AdoptDetailsPage = () => {
         {/* Image */}
         <div className="w-85 h-85 overflow-hidden rounded-lg">
           <img
-            src="src/assets/elephant.png"
+            src={`${baseURL}/public/${animal.image}`}
             className="w-full h-full object-cover"
           />
         </div>
@@ -59,9 +61,12 @@ const AdoptDetailsPage = () => {
           </div>
 
           {/* Species */}
-          <div className="flex my-4">
+          <div className="flex my-4 gap-4">
             <div className="px-4 py-2 text-primary border border-primary rounded-4xl">
               {animal.species}
+            </div>
+            <div className="px-4 py-2 text-primary border border-primary rounded-4xl">
+              {animal.gender}
             </div>
           </div>
 
