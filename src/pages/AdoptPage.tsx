@@ -9,6 +9,7 @@ interface Animal {
   name: string;
   age: number;
   location: string;
+  image: string;
 }
 
 const AdoptPage = () => {
