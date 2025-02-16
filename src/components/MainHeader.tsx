@@ -6,7 +6,7 @@ const MainHeader = () => {
   let title = ''
 
   if (pathname === '/') {
-    title = 'EcoPulse';
+    title = 'EcoGuardian';
   }
   else if (pathname === '/assess') {
     title = 'Assess Animal';
