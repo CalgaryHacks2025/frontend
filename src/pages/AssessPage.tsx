@@ -5,7 +5,12 @@ const AssessPage = () => {
   return (
     <>
         <MainHeader/>
-        <div>AssessPage</div>
+        <section>
+          <p className="text-secondary-text text-center my-6">Take a photo or upload an existing one to <br></br> assess the animal's condition</p>
+        </section>
+        <article>
+          
+        </article>
         <Nav/>
     </>
   )

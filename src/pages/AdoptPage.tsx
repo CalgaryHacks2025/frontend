@@ -3,9 +3,15 @@ import MainHeader from "../components/MainHeader"
 import AnimalCard from "../components/AnimalCard"
 
 const AdoptPage = () => {
+  
+
   return (
+
     <>
         <MainHeader/>
+        <section className="">
+          
+        </section>
         <section className="grid grid-cols-2 gap-6 p-6">
         <AnimalCard/>
         <AnimalCard/>
@@ -13,7 +19,7 @@ const AdoptPage = () => {
         <AnimalCard/>
         
         </section>
-        <div className="font-inter">AdoptPage</div>
+
         <Nav/>
     </>
 
