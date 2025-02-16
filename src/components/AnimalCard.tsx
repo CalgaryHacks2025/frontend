@@ -49,7 +49,7 @@ const AnimalCard = ({ animal, isAdopted }: { animal: Animal; isAdopted: boolean 
           <button
             className={`rounded-lg w-full py-2 transition ${
               isAdopted
-          ? 'bg-green-500 text-white hover:bg-green-600'
+          ? 'bg-primary text-white hover:bg-green-600'
           : 'bg-secondary text-primary hover:bg-secondary-dark'
             }`}
           >

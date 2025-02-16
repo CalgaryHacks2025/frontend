@@ -22,11 +22,12 @@
         }
     };
 
-    export const adoptAnimal = async (animalId: string, userId: string) => {
+    export const adoptAnimal = async (userId: string, animalId: string ) => {
         try {
-            const response = await axios.post(`${API_URL}/api/animals/adopt`, {
-                animalId,
-                userId,
+            const response = await axios.post(`${API_URL}/api/animals/adopt`, 
+                {
+                animal_id: animalId,
+                user_id: userId,
             });
             return response.data;
         } catch (error) {

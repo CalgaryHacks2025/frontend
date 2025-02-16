@@ -52,7 +52,7 @@ const AdoptPage = () => {
   return (
     <>
       <MainHeader />
-      <section className="grid grid-cols-2 gap-6 p-6">
+      <section className="grid grid-cols-2 gap-6 p-6 pb-22">
         {animals.length > 0 ? (
           animals.map((animal) => (
             <AnimalCard 
