@@ -1,3 +1,4 @@
+import "./App.css";
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 import AssessPage from "./pages/AssessPage"
 import AdoptPage from "./pages/AdoptPage"

@@ -1,8 +1,11 @@
-
+import Nav from "../components/Nav"
 
 const CommunityPage = () => {
   return (
-    <div>CommunityPage</div>
+    <>
+        <div>Community</div>
+        <Nav/>
+    </>
   )
 }
 

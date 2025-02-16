@@ -1,8 +1,11 @@
-
+import Nav from "../components/Nav"
 
 const ProfilePage = () => {
   return (
-    <div>ProfilePage</div>
+    <>
+        <div>ProfilePage</div>
+        <Nav/>
+    </>
   )
 }
 
