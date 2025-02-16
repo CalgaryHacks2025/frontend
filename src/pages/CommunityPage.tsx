@@ -1,8 +1,13 @@
-
+import Nav from "../components/Nav"
+import MainHeader from "../components/MainHeader"
 
 const CommunityPage = () => {
   return (
-    <div>CommunityPage</div>
+    <>
+        <MainHeader/>
+        <div>Community</div>
+        <Nav/>
+    </>
   )
 }
 

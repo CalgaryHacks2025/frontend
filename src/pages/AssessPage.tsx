@@ -1,8 +1,13 @@
-
+import Nav from "../components/Nav"
+import MainHeader from "../components/MainHeader"
 
 const AssessPage = () => {
   return (
-    <div>AssessPage</div>
+    <>
+        <MainHeader/>
+        <div>AssessPage</div>
+        <Nav/>
+    </>
   )
 }
 
