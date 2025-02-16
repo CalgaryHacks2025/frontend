@@ -7,9 +7,12 @@ interface Animal {
   name: string;
   age: number;
   location: string;
+  image: string;
 }
 
 const AnimalCard = ({ animal }: { animal: Animal }) => {
+    const baseURL = import.meta.env.VITE_API_URL;
+    const country = animal.location.split(', ')
   return (
     <article className="w-41 rounded-2xl overflow-hidden shadow-lg">
       <div className="relative h-41 w-41">
@@ -17,7 +20,7 @@ const AnimalCard = ({ animal }: { animal: Animal }) => {
           <Alert className="mr-1" />
           <p className="text-buttons">Fundraising</p>
         </div>
-        <img src="src/assets/elephant.png" alt={animal.name} className="w-full h-full object-cover" />
+        <img src={`${baseURL}/public/${animal.image}`} alt={animal.name} className="w-full h-full object-cover" />
       </div>
 
       <div className="bg-background-card p-3">
@@ -27,7 +30,7 @@ const AnimalCard = ({ animal }: { animal: Animal }) => {
         </div>
         <div className="flex items-center py-1 mb-2">
           <Pin height={12} />
-          <p className="text-secondary-text px-2 text-sm font-light">{animal.location}</p>
+          <p className="text-secondary-text px-2 text-sm font-light">{country[1]}</p>
         </div>
         <Link to={`/adopt/${animal.id}`}>
           <button className="bg-secondary text-primary rounded-lg w-full py-2 hover:bg-secondary-dark transition">
