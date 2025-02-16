@@ -5,23 +5,29 @@ import SecondaryHeader from "../components/SecondaryHeader";
 import HeartIcon from "../assets/heart-yellow.svg";
 import HabitatIcon from "../assets/habitat-yellow.svg";
 import MealIcon from "../assets/meal-yellow.svg";
+import { fetchAnimalById, fetchAnimalActivities } from "../apis/api";
 
-interface UserData {
+interface Animal {
   name: string;
-  username: string;
-  id: number;
+  location: string;
+  age: number;
+  description: string;
+  image: string;
 }
 
-interface PhotoData {
-  url: string;
+interface Activity {
+  activity: string;
+  timestamp: string;
 }
+
+const baseURL = import.meta.env.VITE_API_URL;
 
 const UpdatesPage = () => {
   const { id } = useParams<{ id: string }>(); 
-  const [userData, setUserData] = useState<UserData | null>(null);
-  const [photoData, setPhotoData] = useState<PhotoData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [animal, setAnimal] = useState<Animal | null>(null);
+  const [activities, setActivities] = useState<Activity[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,23 +38,14 @@ const UpdatesPage = () => {
       }
 
       try {
-        const response = await fetch(
-          `https://jsonplaceholder.typicode.com/users/${id}`
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data: UserData = await response.json();
-        setUserData(data);
+        // Fetch animal details
+        const animalData = await fetchAnimalById(id);
+        setAnimal(animalData);
 
-        const photoResponse = await fetch(
-          `https://jsonplaceholder.typicode.com/photos/${id}`
-        );
-        if (!photoResponse.ok) {
-          throw new Error("Failed to fetch photo data");
-        }
-        const photoData: PhotoData = await photoResponse.json();
-        setPhotoData(photoData);
+        // Fetch animal activities
+        const activityData = await fetchAnimalActivities(id);
+        setActivities(activityData);
+
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
@@ -63,14 +60,13 @@ const UpdatesPage = () => {
     fetchData();
   }, [id]);
 
-  const getCurrentDate = () => {
-    const today = new Date();
-    const options: Intl.DateTimeFormatOptions = {
+  const getFormattedDate = (timestamp: string) => {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
-    };
-    return today.toLocaleDateString("en-US", options);
+    });
   };
 
   if (loading) {
@@ -83,96 +79,98 @@ const UpdatesPage = () => {
 
   return (
     <div className="font-inter bg-background min-h-screen pb-20">
-      <SecondaryHeader title={`Updates for ID: ${id}`} />
+      <SecondaryHeader title={`Updates for ${animal?.name}`} />
       <div className="p-6">
         <div className="container mx-auto">
           <div className="bg-background p-0 rounded-lg">
             <div className="flex">
               <div className="flex items-center mb-4">
-                {photoData && (
+                {/* 🖼️ Display dynamic animal image */}
+                {animal?.image && (
                   <img
-                    src={photoData.url}
-                    alt="Fubao"
+                    src={`${baseURL}/public/${animal.image}`}
+                    alt={animal.name}
                     className="w-24 h-24 rounded-full object-cover mr-4"
                   />
                 )}
               </div>
               <div className="">
                 <h2 className="text-primary font-bold text-xl mb-4">
-                  {userData?.name}
+                  {animal?.name}
                 </h2>
                 <p className="text-secondary-text mb-2">
-                  {userData?.username} • {userData?.id} years old
+                  {animal?.location} • {animal?.age} years old
                 </p>
                 <p className="text-secondary-text mb-4">
-                  Adopted on {getCurrentDate()}
+                  Adopted on {getFormattedDate(activities?.[0]?.timestamp || new Date().toISOString())}
                 </p>
               </div>
             </div>
+
             <button className="bg-primary text-white px-4 py-2 rounded-lg mb-6 w-full">
               View certificate of adoption
             </button>
+
             <h3 className="text-primary font-bold text-lg mb-4">
               Recent Updates
             </h3>
-            <div className="space-y-4">
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex justify-between">
-                  <div className="flex justify-normal gap-2">
-                    <img src={HeartIcon} alt="hearticon" className="h-5 w-5" />
-                    <h4 className="text-primary font-bold">Health Check-up</h4>
-                  </div>
-                  <div>
-                    <p className="text-secondary-text justify-self-end">
-                      2 days ago
-                    </p>
+
+            {activities && activities.length > 0 ? (
+              <div className="space-y-4">
+                {/* Activity 1 */}
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <div className="flex justify-between">
+                    <div className="flex justify-normal gap-2">
+                      <img src={HeartIcon} alt="heart icon" className="h-5 w-5" />
+                      <h4 className="text-primary font-bold">
+                        {activities[0].activity}
+                      </h4>
+                    </div>
+                    <div>
+                      <p className="text-secondary-text">
+                        {getFormattedDate(activities[0].timestamp)}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <p className="text-secondary-text mt-2">
-                  Max had his regular check-up. All vitals are normal and he's
-                  in excellent health!
-                </p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex justify-between">
-                  <div className="flex justify-normal gap-2">
-                    <img
-                      src={HabitatIcon}
-                      alt="hearticon"
-                      className="h-5 w-5"
-                    />
-                    <h4 className="text-primary font-bold">Habitat Update</h4>
-                  </div>
-                  <div>
-                    <p className="text-secondary-text justify-self-end">
-                      1 week ago
-                    </p>
+                {/* Activity 2 */}
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <div className="flex justify-between">
+                    <div className="flex justify-normal gap-2">
+                      <img src={HabitatIcon} alt="habitat icon" className="h-5 w-5" />
+                      <h4 className="text-primary font-bold">
+                        {activities[1]?.activity || "No activity"}
+                      </h4>
+                    </div>
+                    <div>
+                      <p className="text-secondary-text">
+                        {activities[1] ? getFormattedDate(activities[1].timestamp) : "N/A"}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-secondary-text mt-2">
-                  Living space cleaned and refreshed. New toys added to enrich
-                  daily activities.
-                </p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex justify-between">
-                  <div className="flex justify-normal gap-2">
-                    <img src={MealIcon} alt="hearticon" className="h-5 w-5" />
-                    <h4 className="text-primary font-bold">Diet Report</h4>
-                  </div>
-                  <div>
-                    <p className="text-secondary-text justify-self-end">
-                      1 week ago
-                    </p>
+
+                {/* Activity 3 */}
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <div className="flex justify-between">
+                    <div className="flex justify-normal gap-2">
+                      <img src={MealIcon} alt="meal icon" className="h-5 w-5" />
+                      <h4 className="text-primary font-bold">
+                        {activities[2]?.activity || "No activity"}
+                      </h4>
+                    </div>
+                    <div>
+                      <p className="text-secondary-text">
+                        {activities[2] ? getFormattedDate(activities[2].timestamp) : "N/A"}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-secondary-text mt-2">
-                  Maintaining healthy appetite. Diet plan adjusted for winter
-                  season.
-                </p>
               </div>
-            </div>
+            ) : (
+              <p className="text-secondary-text text-center">No activities found.</p>
+            )}
           </div>
         </div>
       </div>

@@ -66,3 +66,13 @@
             throw error;
         }
     };
+
+    export const fetchAnimalActivities = async (animalId: string) => {
+        try {
+            const response = await axios.get(`${API_URL}/api/animals/${animalId}/activities`);
+            return response.data;
+        } catch (error) {
+            console.error(`Error fetching activities for animal ID ${animalId}:`, error);
+            throw error;
+        }
+    };
