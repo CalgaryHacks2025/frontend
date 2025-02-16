@@ -6,6 +6,7 @@ import CommunityPage from "./pages/CommunityPage";
 import ProfilePage from "./pages/ProfilePage";
 import HomePage from "./pages/HomePage";
 import UpdatesPage from "./pages/UpdatesPage";
+import AdoptDetailsPage from "./pages/AdoptDetailsPage";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/assess" element={<AssessPage />} />
           <Route path="/adopt" element={<AdoptPage />} />
+          <Route path="/adopt/:id" element={<AdoptDetailsPage />} />
+
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/updates" element={<UpdatesPage />} />
