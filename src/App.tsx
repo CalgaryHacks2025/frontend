@@ -13,6 +13,7 @@ import AnalysisPage from "./pages/AnalysisPage";
 
 function App() {
   return (
+<<<<<<< HEAD
     <>
       <BrowserRouter>
         <Routes>
@@ -29,6 +30,21 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
+=======
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/assess" element={<AssessPage />} />
+        <Route path="/adopt" element={<AdoptPage />} />
+        <Route path="/adopt/:id" element={<AdoptDetailsPage />} />
+        <Route path="/community" element={<CommunityPage />} />
+        <Route path="/profile/:id" element={<ProfilePage />} />
+        <Route path="/updates/:id" element={<UpdatesPage />} /> 
+        <Route path="/event-details" element={<EventDetailsPage />} />
+        <Route path="/event-confirmed" element={<EventConfirmedPage />} />
+      </Routes>
+    </BrowserRouter>
+>>>>>>> develop
   );
 }
 
