@@ -43,12 +43,12 @@ const AnimalCard = ({ animal, isAdopted }: { animal: Animal; isAdopted: boolean 
           <Pin height={12} />
           <p className="text-secondary-text px-2 text-sm font-light">{animal.location}</p>
         </div>
-        <Link to={`/adopt/${animal.id}`}>
+        <Link to={isAdopted ? `/update/${animal.id}` : `/adopt/${animal.id}`}>
           <button
             className={`rounded-lg w-full py-2 transition ${
               isAdopted
-                ? 'bg-green-500 text-white hover:bg-green-600'
-                : 'bg-secondary text-primary hover:bg-secondary-dark'
+          ? 'bg-green-500 text-white hover:bg-green-600'
+          : 'bg-secondary text-primary hover:bg-secondary-dark'
             }`}
           >
             {isAdopted ? 'View Status' : 'Adopt'}

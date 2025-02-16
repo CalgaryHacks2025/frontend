@@ -23,7 +23,7 @@ const AdoptPage = () => {
       try {
         const [allAnimals, adoptions] = await Promise.all([
           fetchAllAnimals(),
-          fetchAdoptionsByUserId(2) 
+          fetchAdoptionsByUserId(1) 
         ]);
 
         setAnimals(allAnimals);
