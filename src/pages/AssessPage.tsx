@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { detectImage } from '../apis/api';
 import Nav from "../components/Nav";
 import MainHeader from "../components/MainHeader";
@@ -7,10 +8,9 @@ import PhotoIcon from "../assets/photo.svg?react";
 
 const AssessPage = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [primarySpecies, setPrimarySpecies] = useState<string | null>(null);
-  const [confidence, setConfidence] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate(); // 🆕 Add navigation hook
 
   // Handle file selection
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,8 +18,6 @@ const AssessPage = () => {
     if (selectedFile) {
       setFile(selectedFile);
       setError(null);
-      setPrimarySpecies(null);
-      setConfidence(null);
     }
   };
 
@@ -34,10 +32,10 @@ const AssessPage = () => {
     try {
       const response = await detectImage(file);
       console.log('Detection response:', response);
-      // Extract primary species and confidence
-      setPrimarySpecies(response.primary_species_detected);
-      setConfidence(response.confidence);
-      setError(null);
+
+      // 🆕 Navigate to the analysis page with the result
+      navigate('/analysis', { state: { result: response } });
+
     } catch (err) {
       console.error('Failed to detect objects:', err);
       setError('Failed to detect objects. Please try again.');
@@ -85,15 +83,6 @@ const AssessPage = () => {
             Choose from your gallery
           </p>
         </article>
-
-        {/* Display Primary Species and Confidence */}
-        {primarySpecies && confidence && (
-          <div className="bg-background-card p-4 mt-6 rounded-lg shadow-md text-center">
-            <h3 className="text-primary font-semibold mb-3">Detection Result:</h3>
-            <p className="text-xl font-bold text-blue-600">{primarySpecies}</p>
-            <p className="text-lg text-green-600">Confidence: {confidence}</p>
-          </div>
-        )}
 
         {/* Error Message */}
         {error && (

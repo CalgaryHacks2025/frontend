@@ -85,7 +85,6 @@ const UpdatesPage = () => {
           <div className="bg-background p-0 rounded-lg">
             <div className="flex">
               <div className="flex items-center mb-4">
-                {/* 🖼️ Display dynamic animal image */}
                 {animal?.image && (
                   <img
                     src={`${baseURL}/public/${animal.image}`}
@@ -98,9 +97,12 @@ const UpdatesPage = () => {
                 <h2 className="text-primary font-bold text-xl mb-4">
                   {animal?.name}
                 </h2>
-                <p className="text-secondary-text mb-2">
-                  {animal?.location} • {animal?.age} years old
-                </p>
+                <div className="mb-2">
+                  <p className="text-secondary-text font-medium">{animal?.location}</p>
+                </div>
+                <div>
+                  <p className="text-secondary-text font-light">{animal?.age} years old</p>
+                </div>
                 <p className="text-secondary-text mb-4">
                   Adopted on {getFormattedDate(activities?.[0]?.timestamp || new Date().toISOString())}
                 </p>
