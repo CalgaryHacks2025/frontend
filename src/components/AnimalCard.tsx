@@ -27,7 +27,7 @@ const AnimalCard = ({ animal, isAdopted }: { animal: Animal; isAdopted: boolean 
             </>
           ) : (
             <>
-              <Alert className="mr-1 text-blue-500" />
+              <Alert className="mr-1 fill-primary" />
               <p className="text-buttons">Fundraising</p>
             </>
           )}
