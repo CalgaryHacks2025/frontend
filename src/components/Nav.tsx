@@ -7,15 +7,15 @@ const Nav = () => {
           <img src="/home.svg" className="place-self-center"></img>
           Home
         </Link>
-        <Link to={'/adopt'} className="">
+        <Link to={'/assess'} className="">
           <img src="/frame.svg" className="place-self-center"></img>
           Assess
         </Link>
-        <Link to={'/community'}>
+        <Link to={'/adopt'}>
           <img src="/heart.svg" className="place-self-center"></img>
           Adopt
         </Link>
-        <Link to={'/profile'}>
+        <Link to={'/community'}>
           <img src="/community.svg" className="place-self-center"></img>
           Community
         </Link>       
